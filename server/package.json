@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
-        "start:dev": "nodemon app.js"
+        "start:dev": "nodemon app.js",
+        "build": "express build --output public"
     },
     "devDependencies": {
         "@types/cors": "^2.8.17",
