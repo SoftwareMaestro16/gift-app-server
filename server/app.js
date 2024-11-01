@@ -7,6 +7,8 @@ import User from './models/user.js';
 import Gifts from "./models/gifts.js";
 import { getInvoice, checkInvoiceStatus } from "./createInvoice/invoice.js";
 import axios from 'axios'; 
+import dotenv from 'dotenv';
+dotenv.config();
 
 async function initializeGifts() {
     try {
@@ -31,7 +33,7 @@ async function initializeGifts() {
     }
 }
 
-mongoose.connect('mongodb+srv://softwaremaestro:lovecoding@cluster0.yokse.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect(process.env.MONGODB_LINK)
     .then(() => console.log('Connected to MongoDB'), await initializeGifts())
     .catch(err => console.error('Error connecting to MongoDB:', err)); 
 
